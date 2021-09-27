@@ -21,6 +21,7 @@ public class YopmailHomePage extends YopmailBasePage {
 
     @Step("Write email name: {emailName} in email input field")
     public YopmailHomePage writeEmailName(String emailName) {
+        waiter.waitForElementLocated(emailNameField, 5);
         log.info(String.format("Write email name: '%s' in email input field", emailName));
         emailNameField.sendKeys(emailName);
         return this;
