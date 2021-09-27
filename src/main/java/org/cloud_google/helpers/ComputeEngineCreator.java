@@ -1,28 +1,24 @@
 package org.cloud_google.helpers;
 
 import org.cloud_google.models.ComputeEngine;
-import org.cloud_google.utils.EnvironmentHandler;
-import org.cloud_google.utils.PropertyReader;
-
-import java.util.Properties;
+import org.cloud_google.utils.Properties;
 
 public class ComputeEngineCreator {
 
-    String env = EnvironmentHandler.getEnv();
-    Properties computeEngineProperties = PropertyReader.readProperties(env);
+    static Properties properties = new org.cloud_google.utils.Properties();
 
     public ComputeEngine create() {
         return ComputeEngine.builder()
-                .numberOfInstances(computeEngineProperties.getProperty("number.of.instances"))
-                .operatingSystem(computeEngineProperties.getProperty("operating.system"))
-                .virtualMachineClass(computeEngineProperties.getProperty("virtual.machine.class"))
-                .series(computeEngineProperties.getProperty("series"))
-                .instanceType(computeEngineProperties.getProperty("instance.type"))
-                .numberOfGpu(computeEngineProperties.getProperty("number.of.gpu"))
-                .gpuType(computeEngineProperties.getProperty("gpu.type"))
-                .localSsd(computeEngineProperties.getProperty("local.ssd"))
-                .datacenterLocation(computeEngineProperties.getProperty("datacenter.location"))
-                .committedUsage(computeEngineProperties.getProperty("committed.usage"))
+                .numberOfInstances(properties.getNumberOfInstances())
+                .operatingSystem(properties.getOperatingSystem())
+                .virtualMachineClass(properties.getVirtualMachineClass())
+                .series(properties.getSeries())
+                .instanceType(properties.getInstanceType())
+                .numberOfGpu(properties.getNumberOfGpu())
+                .gpuType(properties.getGpuType())
+                .localSsd(properties.getLocalSsd())
+                .datacenterLocation(properties.getDatacenterLocation())
+                .committedUsage(properties.getCommitedUsage())
                 .build();
     }
 }

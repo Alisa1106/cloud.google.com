@@ -15,12 +15,13 @@ import org.testng.annotations.Listeners;
 @Listeners(TestListener.class)
 public class BaseTest {
 
+    static Properties properties = new Properties();
     WebDriver driver;
     Steps steps;
 
     @BeforeMethod
     public void initTest(ITestContext context) {
-        driver = DriverCreator.create(new Properties().getBrowser()).createDriver();
+        driver = DriverCreator.create(properties.getBrowser()).createDriver();
         driver.manage().window().maximize();
         initSteps();
         String variable = "driver";
