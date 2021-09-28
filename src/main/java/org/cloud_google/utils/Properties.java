@@ -1,8 +1,10 @@
 package org.cloud_google.utils;
 
 import lombok.Data;
+import lombok.extern.log4j.Log4j;
 
 @Data
+@Log4j
 public class Properties {
 
     private String browser;
@@ -22,6 +24,8 @@ public class Properties {
         java.util.Properties commonProps = PropertyReader.readProperties("common");
         java.util.Properties computeEngineProperties = PropertyReader.readProperties(env);
         browser = System.getenv().getOrDefault("browser", commonProps.getProperty("browser"));
+        log.info("=========Env browser: " + System.getenv().get("browser"));
+        log.info("=========System browser: " + System.getProperty("browser"));
         numberOfInstances = computeEngineProperties.getProperty("number.of.instances");
         operatingSystem = computeEngineProperties.getProperty("operating.system");
         virtualMachineClass = computeEngineProperties.getProperty("virtual.machine.class");
