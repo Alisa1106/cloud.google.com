@@ -21,7 +21,7 @@ public class Properties {
     public Properties() {
         java.util.Properties commonProps = PropertyReader.readProperties("common");
         java.util.Properties computeEngineProperties = PropertyReader.readProperties(env);
-        browser = System.getProperty("browser", commonProps.getProperty("browser"));
+        browser = System.getenv().getOrDefault("browser", commonProps.getProperty("browser"));
         numberOfInstances = computeEngineProperties.getProperty("number.of.instances");
         operatingSystem = computeEngineProperties.getProperty("operating.system");
         virtualMachineClass = computeEngineProperties.getProperty("virtual.machine.class");
