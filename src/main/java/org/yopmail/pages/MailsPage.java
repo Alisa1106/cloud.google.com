@@ -28,9 +28,6 @@ public class MailsPage extends YopmailBasePage {
     @FindBy(id = "refresh")
     WebElement refreshMailsButton;
 
-    @FindBy(className = "mc")
-    WebElement messageCheckbox;
-
     @Step("Get email")
     public String getEmail() {
         return emailNameContainer.getText();

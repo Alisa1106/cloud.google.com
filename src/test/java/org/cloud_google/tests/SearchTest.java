@@ -13,7 +13,7 @@ public class SearchTest extends BaseTest {
     public static final String DELETE_BUTTON_NAME = "Delete";
 
     @Test(description = "Check that Total Estimated Monthly Cost in mail matches with Total Estimated Monthly Cost in Estimate")
-    public void searchTest() throws InterruptedException {
+    public void searchTest() {
         ComputeEngineCreator creator = new ComputeEngineCreator();
         steps.selectParameterToEstimate(SEARCH_REQUEST_TEXT, SEARCH_REQUEST_TEXT, COMPUTE_ENGINE_BUTTON_NAME, creator.create());
         String totalEstimatedCost = steps.getTotalEstimatedCost();

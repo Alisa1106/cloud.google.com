@@ -60,7 +60,7 @@ public class Steps {
     }
 
     @Step("Return to Cloud google tab, fill in email field, send email, then go to email page and get total price in email")
-    public String sendAndCheckEmail(String email, String emailTitleName) throws InterruptedException {
+    public String sendAndCheckEmail(String email, String emailTitleName)  {
         return mailsPage.switchToOtherTab()
                 .switchToTwoFrames()
                 .writeEmailInEmailInputField(email)
