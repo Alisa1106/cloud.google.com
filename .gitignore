@@ -1,0 +1,8 @@
+# Project exclude paths
+/target/
+/.allure/
+/xml/
+/html/
+/test-output/
+.idea
+*.iml
